@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 fuzza. All rights reserved.
 //
 
+#import <CoreData/CoreData.h>
 #import "FUZAppDelegate.h"
 
 @interface FUZAppDelegate ()
@@ -15,7 +16,6 @@
 @implementation FUZAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     return YES;
 }
 

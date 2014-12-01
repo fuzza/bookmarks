@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6F10810F1A2CDB6C00D9A781 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F10810E1A2CDB6C00D9A781 /* MapKit.framework */; };
+		6F1081121A2CE74000D9A781 /* Bookmarks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6F1081101A2CE74000D9A781 /* Bookmarks.xcdatamodeld */; };
+		6F1081141A2CE96D00D9A781 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1081131A2CE96D00D9A781 /* CoreData.framework */; };
+		6F1081181A2CED0E00D9A781 /* FUZBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1081171A2CED0E00D9A781 /* FUZBookmark.m */; };
+		6F10811C1A2CEDCA00D9A781 /* FUZLocalStorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F10811B1A2CEDCA00D9A781 /* FUZLocalStorageService.m */; };
 		6FA2DDDF1A2CD4E200A1FFCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA2DDDE1A2CD4E200A1FFCF /* main.m */; };
 		6FA2DDE81A2CD4E200A1FFCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FA2DDE61A2CD4E200A1FFCF /* Main.storyboard */; };
 		6FA2DDEA1A2CD4E200A1FFCF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FA2DDE91A2CD4E200A1FFCF /* Images.xcassets */; };
@@ -31,6 +35,12 @@
 /* Begin PBXFileReference section */
 		501AE0FFAA8B7A49BA34EC57 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F10810E1A2CDB6C00D9A781 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6F1081111A2CE74000D9A781 /* Bookmarks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bookmarks.xcdatamodel; sourceTree = "<group>"; };
+		6F1081131A2CE96D00D9A781 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		6F1081161A2CED0E00D9A781 /* FUZBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUZBookmark.h; sourceTree = "<group>"; };
+		6F1081171A2CED0E00D9A781 /* FUZBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUZBookmark.m; sourceTree = "<group>"; };
+		6F10811A1A2CEDCA00D9A781 /* FUZLocalStorageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUZLocalStorageService.h; sourceTree = "<group>"; };
+		6F10811B1A2CEDCA00D9A781 /* FUZLocalStorageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUZLocalStorageService.m; sourceTree = "<group>"; };
 		6FA2DDD91A2CD4E200A1FFCF /* Bookmarks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookmarks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FA2DDDD1A2CD4E200A1FFCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6FA2DDDE1A2CD4E200A1FFCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -53,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F1081141A2CE96D00D9A781 /* CoreData.framework in Frameworks */,
 				6F10810F1A2CDB6C00D9A781 /* MapKit.framework in Frameworks */,
 				9702AB86788EA324CB5850EF /* libPods.a in Frameworks */,
 			);
@@ -68,6 +79,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F1081151A2CECED00D9A781 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6F1081161A2CED0E00D9A781 /* FUZBookmark.h */,
+				6F1081171A2CED0E00D9A781 /* FUZBookmark.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6F1081191A2CEDAD00D9A781 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6F10811A1A2CEDCA00D9A781 /* FUZLocalStorageService.h */,
+				6F10811B1A2CEDCA00D9A781 /* FUZLocalStorageService.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		6FA2DDD01A2CD4E200A1FFCF = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +125,7 @@
 				6FA2DDE91A2CD4E200A1FFCF /* Images.xcassets */,
 				6FA2DDEB1A2CD4E200A1FFCF /* LaunchScreen.xib */,
 				6FA2DDDC1A2CD4E200A1FFCF /* Supporting Files */,
+				6F1081101A2CE74000D9A781 /* Bookmarks.xcdatamodeld */,
 			);
 			path = Bookmarks;
 			sourceTree = "<group>";
@@ -129,6 +159,8 @@
 		6FA2DE021A2CD70300A1FFCF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6F1081191A2CEDAD00D9A781 /* Services */,
+				6F1081151A2CECED00D9A781 /* Model */,
 				6FA2DE031A2CD85900A1FFCF /* FUZAppDelegate.h */,
 				6FA2DE041A2CD85900A1FFCF /* FUZAppDelegate.m */,
 				6FA2DE051A2CD85900A1FFCF /* ViewControllers */,
@@ -148,6 +180,7 @@
 		781A6B7182ABB53040147890 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6F1081131A2CE96D00D9A781 /* CoreData.framework */,
 				6F10810E1A2CDB6C00D9A781 /* MapKit.framework */,
 				501AE0FFAA8B7A49BA34EC57 /* libPods.a */,
 			);
@@ -299,9 +332,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F1081181A2CED0E00D9A781 /* FUZBookmark.m in Sources */,
 				6FA2DE091A2CD9BC00A1FFCF /* FUZMapViewController.m in Sources */,
 				6FA2DE061A2CD85900A1FFCF /* FUZAppDelegate.m in Sources */,
 				6FA2DDDF1A2CD4E200A1FFCF /* main.m in Sources */,
+				6F1081121A2CE74000D9A781 /* Bookmarks.xcdatamodeld in Sources */,
+				6F10811C1A2CEDCA00D9A781 /* FUZLocalStorageService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +542,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6F1081101A2CE74000D9A781 /* Bookmarks.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6F1081111A2CE74000D9A781 /* Bookmarks.xcdatamodel */,
+			);
+			currentVersion = 6F1081111A2CE74000D9A781 /* Bookmarks.xcdatamodel */;
+			path = Bookmarks.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6FA2DDD11A2CD4E200A1FFCF /* Project object */;
 }

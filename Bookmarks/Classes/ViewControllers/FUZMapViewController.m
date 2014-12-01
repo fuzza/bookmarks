@@ -9,6 +9,12 @@
 #import <MapKit/MapKit.h>
 #import "FUZMapViewController.h"
 
+typedef NS_ENUM(NSInteger, FUZMapViewControllerMode)
+{
+    FUZMapViewControllerModeBookmarks = 0,
+    FUZMapViewControllerModeRoute
+};
+
 @interface FUZMapViewController ()
 
 @property (weak, nonatomic) IBOutlet MKMapView *map;
@@ -19,22 +25,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)longTapOnMapView:(UILongPressGestureRecognizer *)sender {
 }
-*/
 
 @end
