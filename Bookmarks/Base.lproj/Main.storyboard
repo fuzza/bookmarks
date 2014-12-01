@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KSW-4v-WNg">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--Map screen-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController storyboardIdentifier="map_vc" id="vXZ-lx-hvc" customClass="FUZMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3fM-yE-O3d">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <gestureRecognizers/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3fM-yE-O3d" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Efc-e7-Hge"/>
+                            <constraint firstAttribute="trailing" secondItem="3fM-yE-O3d" secondAttribute="trailing" id="McF-YP-VNO"/>
+                            <constraint firstAttribute="bottom" secondItem="3fM-yE-O3d" secondAttribute="bottom" id="POL-ZH-xwd"/>
+                            <constraint firstItem="3fM-yE-O3d" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="X0l-87-YFf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map screen" id="MWK-nG-Vxf">
+                        <barButtonItem key="leftBarButtonItem" title="Route" id="Mqy-qK-cJa"/>
+                        <barButtonItem key="rightBarButtonItem" title="Bookmarks" id="zVN-rU-oDC"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="map" destination="3fM-yE-O3d" id="bR9-DQ-k9M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="674" y="284"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3c2-yy-RP5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KSW-4v-WNg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="czO-UE-l2J">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="hEM-Cz-Cn4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4l2-ai-gie" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="142" y="284"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
