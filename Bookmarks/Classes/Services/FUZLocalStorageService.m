@@ -7,6 +7,7 @@
 //
 
 #import "FUZLocalStorageService.h"
+#import "FUZBookmark.h"
 
 @interface FUZLocalStorageService()
 
@@ -60,6 +61,37 @@
         self.managedObjectContext = [[NSManagedObjectContext alloc] init];
         [self.managedObjectContext setPersistentStoreCoordinator:self.persistentStoreCoordinator];
     }
+}
+
+- (void)createBookmarkFromLocation:(CLLocation *)location
+{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:[FUZBookmark entityName] inManagedObjectContext:self.managedObjectContext];
+
+    FUZBookmark* newBookmark = [[FUZBookmark alloc] initWithEntity:entity insertIntoManagedObjectContext:self.managedObjectContext];
+    newBookmark.location = location;
+    
+    [self saveContext];
+}
+
+- (BOOL)saveContext;
+{
+    NSError *error = nil;
+    [self.managedObjectContext save:&error];
+    return (error == nil);
+}
+
+- (NSFetchedResultsController *)fetchedResultControllerForAllBookmarks
+{
+    NSFetchRequest *allBookmarksRequest = [[NSFetchRequest alloc] initWithEntityName:[FUZBookmark entityName]];
+    [allBookmarksRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+    return [self fetchedResultWithFetchRequest:allBookmarksRequest];
+}
+
+- (NSFetchedResultsController *)fetchedResultWithFetchRequest:(NSFetchRequest *)request;
+{
+    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    
+    return fetchedResultsController;
 }
 
 @end

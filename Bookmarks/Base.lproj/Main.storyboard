@@ -20,6 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <gestureRecognizers/>
                                 <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="j1A-jc-jsv"/>
                                     <outletCollection property="gestureRecognizers" destination="edy-6E-fEE" appends="YES" id="7TH-72-0dp"/>
                                 </connections>
                             </mapView>

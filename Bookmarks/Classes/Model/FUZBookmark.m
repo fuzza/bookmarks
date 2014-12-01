@@ -13,4 +13,21 @@
 @dynamic name;
 @dynamic location;
 
++ (NSString *)entityName
+{
+    return NSStringFromClass(self);
+}
+
+#pragma mark MKAnnotation
+
+- (CLLocationCoordinate2D)coordinate
+{
+    return self.location.coordinate;
+}
+
+- (NSString *)title
+{
+    return self.name ? self.name : @"Unnamed";
+}
+
 @end

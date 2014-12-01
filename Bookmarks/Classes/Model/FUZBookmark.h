@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
-
-@interface FUZBookmark : NSManagedObject
+@interface FUZBookmark : NSManagedObject <MKAnnotation>
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, assign) id location;
+@property (nonatomic, assign) CLLocation * location;
+
++ (NSString *)entityName;
 
 @end

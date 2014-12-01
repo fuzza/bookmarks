@@ -12,6 +12,7 @@
 		6F1081141A2CE96D00D9A781 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1081131A2CE96D00D9A781 /* CoreData.framework */; };
 		6F1081181A2CED0E00D9A781 /* FUZBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1081171A2CED0E00D9A781 /* FUZBookmark.m */; };
 		6F10811C1A2CEDCA00D9A781 /* FUZLocalStorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F10811B1A2CEDCA00D9A781 /* FUZLocalStorageService.m */; };
+		6F10811E1A2CF11300D9A781 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F10811D1A2CF11300D9A781 /* CoreLocation.framework */; };
 		6FA2DDDF1A2CD4E200A1FFCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA2DDDE1A2CD4E200A1FFCF /* main.m */; };
 		6FA2DDE81A2CD4E200A1FFCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FA2DDE61A2CD4E200A1FFCF /* Main.storyboard */; };
 		6FA2DDEA1A2CD4E200A1FFCF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FA2DDE91A2CD4E200A1FFCF /* Images.xcassets */; };
@@ -41,6 +42,7 @@
 		6F1081171A2CED0E00D9A781 /* FUZBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUZBookmark.m; sourceTree = "<group>"; };
 		6F10811A1A2CEDCA00D9A781 /* FUZLocalStorageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUZLocalStorageService.h; sourceTree = "<group>"; };
 		6F10811B1A2CEDCA00D9A781 /* FUZLocalStorageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUZLocalStorageService.m; sourceTree = "<group>"; };
+		6F10811D1A2CF11300D9A781 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6FA2DDD91A2CD4E200A1FFCF /* Bookmarks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookmarks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FA2DDDD1A2CD4E200A1FFCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6FA2DDDE1A2CD4E200A1FFCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F10811E1A2CF11300D9A781 /* CoreLocation.framework in Frameworks */,
 				6F1081141A2CE96D00D9A781 /* CoreData.framework in Frameworks */,
 				6F10810F1A2CDB6C00D9A781 /* MapKit.framework in Frameworks */,
 				9702AB86788EA324CB5850EF /* libPods.a in Frameworks */,
@@ -180,6 +183,7 @@
 		781A6B7182ABB53040147890 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6F10811D1A2CF11300D9A781 /* CoreLocation.framework */,
 				6F1081131A2CE96D00D9A781 /* CoreData.framework */,
 				6F10810E1A2CDB6C00D9A781 /* MapKit.framework */,
 				501AE0FFAA8B7A49BA34EC57 /* libPods.a */,
