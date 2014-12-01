@@ -5,3 +5,4 @@ workspace 'Bookmarks.xcworkspace'
 xcodeproj 'Bookmarks.xcodeproj'
 
 pod 'AFNetworking'
+pod 'WYPopoverController'
