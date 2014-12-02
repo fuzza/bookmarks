@@ -17,5 +17,7 @@
 @property (nonatomic, assign) CLLocation * location;
 
 + (NSString *)entityName;
++ (NSFetchRequest *)fetchRequestForAllBookmarks;
++ (instancetype)createBookmarkFromLocation:(CLLocation *)location inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
 @end

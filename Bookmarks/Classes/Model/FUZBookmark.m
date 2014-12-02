@@ -13,6 +13,20 @@
 @dynamic name;
 @dynamic location;
 
++ (instancetype)createBookmarkFromLocation:(CLLocation *)location inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
+{
+    FUZBookmark* newBookmark = [NSEntityDescription insertNewObjectForEntityForName:[self entityName] inManagedObjectContext:managedObjectContext];
+    newBookmark.location = location;
+    return newBookmark;
+}
+
++ (NSFetchRequest *)fetchRequestForAllBookmarks
+{
+    NSFetchRequest *allBookmarksRequest = [[NSFetchRequest alloc] initWithEntityName:[self entityName]];
+    [allBookmarksRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+    return allBookmarksRequest;
+}
+
 + (NSString *)entityName
 {
     return NSStringFromClass(self);

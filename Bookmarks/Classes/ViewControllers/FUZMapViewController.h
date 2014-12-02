@@ -9,6 +9,10 @@
 #import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
 
+@class FUZFetchedControllersBuilder;
+
 @interface FUZMapViewController : UIViewController <NSFetchedResultsControllerDelegate, MKMapViewDelegate>
+
+@property (strong, nonatomic) FUZFetchedControllersBuilder *frcBuilder;
 
 @end

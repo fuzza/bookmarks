@@ -6,16 +6,29 @@
 //  Copyright (c) 2014 fuzza. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
+
 #import "FUZAppDelegate.h"
+#import "FUZCoreDataStack.h"
+#import "FUZMapViewController.h"
+#import "FUZFetchedControllersBuilder.h"
 
 @interface FUZAppDelegate ()
+
+@property (strong, nonatomic) FUZCoreDataStack *persistenceStack;
 
 @end
 
 @implementation FUZAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    FUZMapViewController *rootViewController = (FUZMapViewController *)[navigationController topViewController];
+
+    self.persistenceStack = [[FUZCoreDataStack alloc] init];
+    FUZFetchedControllersBuilder *frcBuilder = [[FUZFetchedControllersBuilder alloc] initWithManagedObjectContext:self.persistenceStack.managedObjectContext];
+    rootViewController.frcBuilder = frcBuilder;
+    
     return YES;
 }
 
