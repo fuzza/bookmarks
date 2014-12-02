@@ -20,11 +20,13 @@
     return newBookmark;
 }
 
-+ (NSFetchRequest *)fetchRequestForAllBookmarks
++ (NSFetchedResultsController *)fetchedResultsControllerForAllBookmarksInContext:(NSManagedObjectContext *)context
 {
     NSFetchRequest *allBookmarksRequest = [[NSFetchRequest alloc] initWithEntityName:[self entityName]];
     [allBookmarksRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
-    return allBookmarksRequest;
+
+    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:allBookmarksRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
+    return fetchedResultsController;
 }
 
 + (NSString *)entityName

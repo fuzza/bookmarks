@@ -13,4 +13,6 @@
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
+- (NSArray *)items;
+
 @end

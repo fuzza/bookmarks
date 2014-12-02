@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KSW-4v-WNg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Map screen-->
@@ -34,11 +35,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Map screen" id="MWK-nG-Vxf">
-                        <barButtonItem key="leftBarButtonItem" title="Route" id="Mqy-qK-cJa"/>
+                        <barButtonItem key="leftBarButtonItem" title="Route" id="Mqy-qK-cJa">
+                            <connections>
+                                <action selector="routeButtonDidTap:" destination="vXZ-lx-hvc" id="6PJ-58-FIH"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Bookmarks" id="zVN-rU-oDC"/>
                     </navigationItem>
                     <connections>
                         <outlet property="map" destination="3fM-yE-O3d" id="bR9-DQ-k9M"/>
+                        <outlet property="routeButton" destination="Mqy-qK-cJa" id="9rj-sU-QYE"/>
+                        <segue destination="1UJ-OM-Tkt" kind="custom" identifier="main_popover_segue" customClass="WYStoryboardPopoverSegue" id="rxR-y7-xr2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -67,6 +74,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4l2-ai-gie" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="142" y="284"/>
+        </scene>
+        <!--Bookmarks Popover View Controller-->
+        <scene sceneID="NKQ-He-X0e">
+            <objects>
+                <viewController id="1UJ-OM-Tkt" customClass="FUZBookmarksPopoverViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cKD-b4-qm2"/>
+                        <viewControllerLayoutGuide type="bottom" id="TOM-Bb-dg8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kGx-Jr-0qm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="D44-Wh-8hw">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookmarkPopupReuseIdentifier" textLabel="eIh-5M-vcD" style="IBUITableViewCellStyleDefault" id="Osq-T3-mWc">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Osq-T3-mWc" id="EOc-gY-nJG">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eIh-5M-vcD">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="1UJ-OM-Tkt" id="CvR-jx-Bg0"/>
+                                    <outlet property="delegate" destination="1UJ-OM-Tkt" id="Img-ff-cUY"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TOM-Bb-dg8" firstAttribute="top" secondItem="D44-Wh-8hw" secondAttribute="bottom" id="0Tt-oL-feD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="D44-Wh-8hw" secondAttribute="trailing" constant="-16" id="alp-Ys-fH2"/>
+                            <constraint firstItem="D44-Wh-8hw" firstAttribute="leading" secondItem="kGx-Jr-0qm" secondAttribute="leadingMargin" constant="-16" id="tcY-s3-rhi"/>
+                            <constraint firstItem="D44-Wh-8hw" firstAttribute="top" secondItem="kGx-Jr-0qm" secondAttribute="topMargin" id="vnD-F1-Zn3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4cq-lV-Iv2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wrD-c9-Lqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1136" y="284"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

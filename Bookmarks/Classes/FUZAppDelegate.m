@@ -10,11 +10,11 @@
 #import "FUZAppDelegate.h"
 #import "FUZCoreDataStack.h"
 #import "FUZMapViewController.h"
-#import "FUZFetchedControllersBuilder.h"
 
 @interface FUZAppDelegate ()
 
 @property (strong, nonatomic) FUZCoreDataStack *persistenceStack;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
@@ -22,12 +22,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    self.locationManager = [[CLLocationManager alloc] init];
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     FUZMapViewController *rootViewController = (FUZMapViewController *)[navigationController topViewController];
 
     self.persistenceStack = [[FUZCoreDataStack alloc] init];
-    FUZFetchedControllersBuilder *frcBuilder = [[FUZFetchedControllersBuilder alloc] initWithManagedObjectContext:self.persistenceStack.managedObjectContext];
-    rootViewController.frcBuilder = frcBuilder;
+    rootViewController.managedObjectContext = self.persistenceStack.managedObjectContext;
     
     return YES;
 }

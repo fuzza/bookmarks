@@ -8,12 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
-#import <CoreData/CoreData.h>
 #import "FUZDataSource.h"
 #import "FUZFRCDataSource.h"
+
+@class FUZBookmark;
 
 @interface FUZMapDataSource : FUZFRCDataSource <FUZDataSource, MKMapViewDelegate>
 
 @property (weak, nonatomic) MKMapView *map;
+
+- (void)showRouteToAnnotation:(id <MKAnnotation>)annotation;
 
 @end

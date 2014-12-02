@@ -8,11 +8,22 @@
 #import <MapKit/MapKit.h>
 #import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
+#import <WYPopoverController.h>
+
+#import "FUZBookmarksPopoverViewController.h"
+
+typedef NS_ENUM(NSInteger, FUZMapViewControllerMode)
+{
+    FUZMapViewControllerModeBookmarks = 0,
+    FUZMapViewControllerModeRoute
+};
 
 @class FUZFetchedControllersBuilder;
 
-@interface FUZMapViewController : UIViewController <NSFetchedResultsControllerDelegate, MKMapViewDelegate>
+@interface FUZMapViewController : UIViewController <WYPopoverControllerDelegate, FUZBookmarksPopoverDelegate>
 
-@property (strong, nonatomic) FUZFetchedControllersBuilder *frcBuilder;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *routeButton;
+@property (assign, nonatomic) FUZMapViewControllerMode mode;
 
 @end

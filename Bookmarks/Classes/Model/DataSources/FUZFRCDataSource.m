@@ -17,4 +17,9 @@
     [_fetchedResultsController performFetch:nil];
 }
 
+- (NSArray *)items
+{
+    return self.fetchedResultsController.fetchedObjects;
+}
+
 @end
