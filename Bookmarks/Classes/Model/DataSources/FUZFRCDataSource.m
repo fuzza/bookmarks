@@ -15,6 +15,24 @@
     _fetchedResultsController = fetchedResultsController;
     _fetchedResultsController.delegate = self;
     [_fetchedResultsController performFetch:nil];
+    [self reloadDataSource];
+}
+
+- (void)setPaused:(BOOL)paused
+{
+    _paused = paused;
+    if (paused) {
+        self.fetchedResultsController.delegate = nil;
+    } else {
+        self.fetchedResultsController.delegate = self;
+        [self.fetchedResultsController performFetch:nil];
+        [self reloadDataSource];
+    }
+}
+
+- (void)reloadDataSource
+{
+     NSAssert(NO, @"This is an abstract method and should be overridden.");
 }
 
 - (NSArray *)items

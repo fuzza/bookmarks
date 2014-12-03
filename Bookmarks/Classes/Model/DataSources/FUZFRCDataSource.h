@@ -12,7 +12,9 @@
 @interface FUZFRCDataSource : NSObject <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (assign, nonatomic) BOOL paused;
 
 - (NSArray *)items;
+- (void)reloadDataSource;
 
 @end

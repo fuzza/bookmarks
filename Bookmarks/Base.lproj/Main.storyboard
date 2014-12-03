@@ -43,6 +43,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Bookmarks" id="zVN-rU-oDC"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="longTapOnMapRecognizer" destination="edy-6E-fEE" id="J1H-Jg-IFz"/>
                         <outlet property="map" destination="3fM-yE-O3d" id="bR9-DQ-k9M"/>
                         <outlet property="routeButton" destination="Mqy-qK-cJa" id="9rj-sU-QYE"/>
                         <segue destination="1UJ-OM-Tkt" kind="custom" identifier="main_popover_segue" customClass="WYStoryboardPopoverSegue" id="rxR-y7-xr2"/>
@@ -52,6 +53,7 @@
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="edy-6E-fEE">
                     <connections>
                         <action selector="longTapOnMapView:" destination="vXZ-lx-hvc" id="8wm-NS-AOp"/>
+                        <outlet property="delegate" destination="vXZ-lx-hvc" id="La4-as-VgN"/>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>

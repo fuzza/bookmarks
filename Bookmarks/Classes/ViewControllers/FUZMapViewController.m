@@ -52,6 +52,7 @@
     switch (self.mode) {
         case FUZMapViewControllerModeBookmarks:
             [self.routeButton setTitle:@"Route"];
+            [self.mapDataSource switchToBookmarks];
             break;
         case FUZMapViewControllerModeRoute:
             [self.routeButton setTitle:@"Clear route"];
@@ -127,7 +128,18 @@
     destinationController.delegate = self;
 }
 
+#pragma mark UIGestureRecognizerDelegate
 
-
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    switch (self.mode) {
+        case FUZMapViewControllerModeRoute:
+            return NO;
+        case FUZMapViewControllerModeBookmarks:
+            return YES;
+        default:
+            return NO;
+    }
+}
 
 @end

@@ -18,5 +18,6 @@
 @property (weak, nonatomic) MKMapView *map;
 
 - (void)showRouteToAnnotation:(id <MKAnnotation>)annotation;
+- (void)switchToBookmarks;
 
 @end

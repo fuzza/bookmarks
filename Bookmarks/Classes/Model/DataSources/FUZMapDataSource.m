@@ -31,12 +31,23 @@
 
 - (void)showRouteToAnnotation:(id <MKAnnotation>)annotation
 {
-    self.fetchedResultsController.delegate = nil;
+    self.paused = YES;
     
     [self.map removeAnnotations:self.map.annotations];
     [self.map addAnnotation:annotation];
     
     [self performRouteRequestForAnnotation:annotation];
+}
+
+- (void)switchToBookmarks
+{
+    [self.map removeOverlays:self.map.overlays];
+    self.paused = NO;
+}
+
+- (void)reloadDataSource
+{
+    [self.map addAnnotations:self.fetchedResultsController.fetchedObjects];
 }
 
 - (void)performRouteRequestForAnnotation:(id <MKAnnotation>)annotation
@@ -45,7 +56,6 @@
     MKMapItem *destination = [[MKMapItem alloc] initWithPlacemark:destinationMark];
     
     MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
-    
     request.source = [MKMapItem mapItemForCurrentLocation];
     request.destination = destination;
     request.requestsAlternateRoutes = NO;

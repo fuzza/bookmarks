@@ -20,10 +20,11 @@ typedef NS_ENUM(NSInteger, FUZMapViewControllerMode)
 
 @class FUZFetchedControllersBuilder;
 
-@interface FUZMapViewController : UIViewController <WYPopoverControllerDelegate, FUZBookmarksPopoverDelegate>
+@interface FUZMapViewController : UIViewController <WYPopoverControllerDelegate, FUZBookmarksPopoverDelegate, UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *routeButton;
 @property (assign, nonatomic) FUZMapViewControllerMode mode;
+@property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *longTapOnMapRecognizer;
 
 @end
