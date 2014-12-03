@@ -12,12 +12,22 @@
 #import "FUZFRCDataSource.h"
 
 @class FUZBookmark;
+@protocol FUZMapDataSouceDelegate;
 
 @interface FUZMapDataSource : FUZFRCDataSource <FUZDataSource, MKMapViewDelegate>
 
 @property (weak, nonatomic) MKMapView *map;
+@property (weak, nonatomic) id <FUZMapDataSouceDelegate> delegate;
+
+@property (strong, nonatomic) FUZBookmark *selectedObject;
 
 - (void)showRouteToAnnotation:(id <MKAnnotation>)annotation;
 - (void)switchToBookmarks;
+
+@end
+
+@protocol FUZMapDataSouceDelegate <NSObject>
+
+- (void)didSelectObject:(id)object;
 
 @end

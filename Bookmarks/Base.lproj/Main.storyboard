@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Map screen-->
+        <!--Map-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController storyboardIdentifier="map_vc" id="vXZ-lx-hvc" customClass="FUZMapViewController" sceneMemberID="viewController">
@@ -34,19 +34,24 @@
                             <constraint firstItem="3fM-yE-O3d" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="X0l-87-YFf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Map screen" id="MWK-nG-Vxf">
+                    <navigationItem key="navigationItem" title="Map" id="MWK-nG-Vxf">
                         <barButtonItem key="leftBarButtonItem" title="Route" id="Mqy-qK-cJa">
                             <connections>
                                 <action selector="routeButtonDidTap:" destination="vXZ-lx-hvc" id="6PJ-58-FIH"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Bookmarks" id="zVN-rU-oDC"/>
+                        <barButtonItem key="rightBarButtonItem" title="Bookmarks" id="zVN-rU-oDC">
+                            <connections>
+                                <segue destination="tJd-uv-iRe" kind="push" identifier="main_to_list_segue" id="X8g-oJ-Qkc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="longTapOnMapRecognizer" destination="edy-6E-fEE" id="J1H-Jg-IFz"/>
                         <outlet property="map" destination="3fM-yE-O3d" id="bR9-DQ-k9M"/>
                         <outlet property="routeButton" destination="Mqy-qK-cJa" id="9rj-sU-QYE"/>
                         <segue destination="1UJ-OM-Tkt" kind="custom" identifier="main_popover_segue" customClass="WYStoryboardPopoverSegue" id="rxR-y7-xr2"/>
+                        <segue destination="jlL-JY-t66" kind="push" identifier="main_to_detail_segue" id="2bU-as-jEF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -127,7 +132,161 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrD-c9-Lqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1136" y="284"/>
+            <point key="canvasLocation" x="1114" y="-322"/>
+        </scene>
+        <!--Bookmark details-->
+        <scene sceneID="kPz-E3-Ymd">
+            <objects>
+                <viewController id="jlL-JY-t66" customClass="FUZBookmarkDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XBU-U9-XsY"/>
+                        <viewControllerLayoutGuide type="bottom" id="IgT-tB-S38"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xa7-cq-cRB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTZ-I0-jcv">
+                                <rect key="frame" x="16" y="84" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unnamed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Npx-C2-081">
+                                <rect key="frame" x="229" y="84" width="75" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZsW-hT-EoP">
+                                <rect key="frame" x="117" y="130" width="75" height="30"/>
+                                <state key="normal" title="Build route">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapBuildRoute:" destination="jlL-JY-t66" eventType="touchUpInside" id="Lxz-Yt-Xzv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9VY-tu-M3g">
+                                <rect key="frame" x="107" y="110" width="95" height="30"/>
+                                <state key="normal" title="Show on map">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapShowOnMap:" destination="jlL-JY-t66" eventType="touchUpInside" id="FRM-Ut-1uS"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aVk-mz-2Ac">
+                                <rect key="frame" x="0.0" y="196" width="320" height="477"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="477" id="9o9-pZ-Eet"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ub1-8K-Xwt">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ub1-8K-Xwt" id="klN-TC-lV6">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pj-Fp-Eu6">
+                                <rect key="frame" x="87" y="148" width="135" height="30"/>
+                                <state key="normal" title="Load nearby places">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapLoadNearby:" destination="jlL-JY-t66" eventType="touchUpInside" id="W5a-rB-p6c"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aVk-mz-2Ac" firstAttribute="top" secondItem="5pj-Fp-Eu6" secondAttribute="bottom" constant="8" symbolic="YES" id="VpW-So-be3"/>
+                            <constraint firstItem="aVk-mz-2Ac" firstAttribute="leading" secondItem="xa7-cq-cRB" secondAttribute="leading" id="Vse-wC-YNX"/>
+                            <constraint firstItem="aVk-mz-2Ac" firstAttribute="top" secondItem="xa7-cq-cRB" secondAttribute="top" constant="196" id="xzx-Xx-5rA"/>
+                            <constraint firstAttribute="trailing" secondItem="aVk-mz-2Ac" secondAttribute="trailing" id="y8M-YD-E9o"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Bookmark details" id="dDS-Zh-xRv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="DM4-Gc-IrE">
+                            <connections>
+                                <action selector="didTapDelete:" destination="jlL-JY-t66" id="rAI-am-odZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="loadNearbyLabel" destination="5pj-Fp-Eu6" id="Iiu-4G-64L"/>
+                        <outlet property="nameLabel" destination="Npx-C2-081" id="Jkg-x4-A8h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="puf-jC-W8Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1548" y="284"/>
+        </scene>
+        <!--Bookmarks List-->
+        <scene sceneID="LEG-61-yOe">
+            <objects>
+                <viewController id="tJd-uv-iRe" customClass="FUZBookmarksListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MTo-DA-ShA"/>
+                        <viewControllerLayoutGuide type="bottom" id="MdM-or-JK5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vEJ-fb-v6Z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JdI-xT-dy9">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BookmarkListCellReuseId" textLabel="RKe-lO-xky" style="IBUITableViewCellStyleDefault" id="eca-Wt-pCH">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eca-Wt-pCH" id="J7d-ak-lix">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RKe-lO-xky">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="jlL-JY-t66" kind="push" identifier="list_to_detail_segue" id="qXf-me-Fsw"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JdI-xT-dy9" firstAttribute="leading" secondItem="vEJ-fb-v6Z" secondAttribute="leadingMargin" constant="-16" id="BAC-Kw-kQ0"/>
+                            <constraint firstItem="JdI-xT-dy9" firstAttribute="top" secondItem="vEJ-fb-v6Z" secondAttribute="topMargin" id="HIz-Om-tmT"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="JdI-xT-dy9" secondAttribute="bottom" id="N9h-Nz-aw1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JdI-xT-dy9" secondAttribute="trailing" constant="-16" id="bWz-J3-iKz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Bookmarks List" id="1xu-aU-EQq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="71X-Gf-sGY">
+                            <connections>
+                                <action selector="editButtonDidTap:" destination="tJd-uv-iRe" id="rdT-Rf-b5o"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editButton" destination="71X-Gf-sGY" id="Vk0-dx-2mY"/>
+                        <outlet property="tableView" destination="JdI-xT-dy9" id="Uda-wP-gcp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Hl-EG-dZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1114" y="1004"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -135,4 +294,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="qXf-me-Fsw"/>
+    </inferredMetricsTieBreakers>
 </document>

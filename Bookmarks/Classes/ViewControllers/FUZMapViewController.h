@@ -11,6 +11,7 @@
 #import <WYPopoverController.h>
 
 #import "FUZBookmarksPopoverViewController.h"
+#import "FUZMapDataSource.h"
 
 typedef NS_ENUM(NSInteger, FUZMapViewControllerMode)
 {
@@ -20,7 +21,7 @@ typedef NS_ENUM(NSInteger, FUZMapViewControllerMode)
 
 @class FUZFetchedControllersBuilder;
 
-@interface FUZMapViewController : UIViewController <WYPopoverControllerDelegate, FUZBookmarksPopoverDelegate, UIGestureRecognizerDelegate>
+@interface FUZMapViewController : UIViewController <WYPopoverControllerDelegate, FUZBookmarksPopoverDelegate, UIGestureRecognizerDelegate, FUZMapDataSouceDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *routeButton;

@@ -15,4 +15,6 @@
 
 @property (weak, nonatomic) UITableView *target;
 
+- (id)selectedItem;
+
 @end

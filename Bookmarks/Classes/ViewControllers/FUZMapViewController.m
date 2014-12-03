@@ -10,7 +10,8 @@
 
 #import "FUZMapViewController.h"
 #import "FUZBookmark.h"
-#import "FUZMapDataSource.h"
+#import "FUZBookmarksListViewController.h"
+#import "FUZBookmarkDetailViewController.h"
 
 @interface FUZMapViewController ()
 
@@ -30,12 +31,23 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    self.mapDataSource.paused = YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if(self.mode == FUZMapViewControllerModeBookmarks)
+    {
+        self.mapDataSource.paused = NO;
+    }
 }
 
 - (void)setupDataSource
 {
     self.mapDataSource = [[FUZMapDataSource alloc] initWithTarget:self.map];
     self.mapDataSource.fetchedResultsController = [FUZBookmark fetchedResultsControllerForAllBookmarksInContext:self.managedObjectContext];
+    self.mapDataSource.delegate = self;
 }
 
 - (void)setMode:(FUZMapViewControllerMode)mode
@@ -120,6 +132,16 @@
         self.bookmarksPopover = [popoverSegue popoverControllerWithSender:sender permittedArrowDirections:WYPopoverArrowDirectionAny animated:YES];
         self.bookmarksPopover.delegate = self;
     }
+    else if([segue.identifier isEqualToString:@"main_to_list_segue"])
+    {
+        FUZBookmarksListViewController *destinationController = (FUZBookmarksListViewController *)segue.destinationViewController;
+        destinationController.managedObjectContext = self.managedObjectContext;
+    }
+    else if([segue.identifier isEqualToString:@"main_to_detail_segue"])
+    {
+        FUZBookmarkDetailViewController *destinationController = (FUZBookmarkDetailViewController *)segue.destinationViewController;
+        destinationController.bookmark = [self.mapDataSource selectedObject];
+    }
 }
 
 - (void)setupBookmarksPopoverController:(FUZBookmarksPopoverViewController *)destinationController
@@ -140,6 +162,13 @@
         default:
             return NO;
     }
+}
+
+#pragma mark FUZMapDataSourceDelegate
+
+- (void)didSelectObject:(FUZBookmark *)object
+{
+    [self performSegueWithIdentifier:@"main_to_detail_segue" sender:self];
 }
 
 @end

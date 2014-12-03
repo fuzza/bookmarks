@@ -8,10 +8,29 @@
 
 #import "FUZBookmark.h"
 
+@interface FUZBookmark (PrimitiveAccessors)
+
+- (NSString *)primitiveName;
+
+@end
+
 @implementation FUZBookmark
 
 @dynamic name;
 @dynamic location;
+
+- (NSString *)name
+{
+    [self willAccessValueForKey:@"name"];
+    NSString *nameViaPrimitive = [self primitiveName];
+    [self didAccessValueForKey:@"name"];
+    return nameViaPrimitive ? nameViaPrimitive : @"Unnamed";
+}
+
++ (void)deleteBookmark:(FUZBookmark *)bookmark
+{
+    [bookmark.managedObjectContext deleteObject:bookmark];
+}
 
 + (instancetype)createBookmarkFromLocation:(CLLocation *)location inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
@@ -43,7 +62,7 @@
 
 - (NSString *)title
 {
-    return self.name ? self.name : @"Unnamed";
+    return self.name;
 }
 
 @end

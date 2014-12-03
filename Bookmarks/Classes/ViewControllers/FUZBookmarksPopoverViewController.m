@@ -29,7 +29,7 @@
 {
     FUZBookmark *object = [self.items objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BookmarkPopupReuseIdentifier" forIndexPath:indexPath];
-    cell.textLabel.text = [object title];
+    cell.textLabel.text = object.name;
     cell.textLabel.textColor = [UIColor blackColor];
     return cell;
 }

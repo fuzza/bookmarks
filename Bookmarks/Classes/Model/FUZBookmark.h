@@ -20,5 +20,6 @@
 
 + (NSFetchedResultsController *)fetchedResultsControllerForAllBookmarksInContext:(NSManagedObjectContext *)context;
 + (instancetype)createBookmarkFromLocation:(CLLocation *)location inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
++ (void)deleteBookmark:(FUZBookmark *)bookmark;
 
 @end
