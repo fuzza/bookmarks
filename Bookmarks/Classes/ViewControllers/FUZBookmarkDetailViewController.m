@@ -7,12 +7,16 @@
 //
 
 #import "FUZBookmarkDetailViewController.h"
+#import "FUZFoursquareAPIClient.h"
+#import "FUZFoursquareVenue.h"
 
 @interface FUZBookmarkDetailViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *loadNearbyLabel;
+
+@property (strong, nonatomic) FUZFoursquareAPIClient *apiClient;
 
 @end
 
@@ -23,6 +27,14 @@
     [super viewDidLoad];
     
     self.nameLabel.text = [self.bookmark title];
+    
+    self.apiClient = [[FUZFoursquareAPIClient alloc] init];
+    
+    [self.apiClient loadNearbyPlacesForLocation:self.bookmark.location withSuccess:^(NSArray *venues) {
+        
+    } andFailure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)showDeletePrompt
