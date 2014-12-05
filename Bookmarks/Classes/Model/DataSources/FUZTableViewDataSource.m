@@ -25,13 +25,20 @@
 
 - (void)setFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController
 {
-    [super setFetchedResultsController:fetchedResultsController];
-    [self.target reloadData];
+    _fetchedResultsController = fetchedResultsController;
+    _fetchedResultsController.delegate = self;
+    [_fetchedResultsController performFetch:nil];
+    [self reloadDataSource];
 }
 
 - (void)reloadDataSource
 {
     [self.target reloadData];
+}
+
+- (NSArray *)items
+{
+    return self.fetchedResultsController.fetchedObjects;
 }
 
 - (id)selectedItem
@@ -49,9 +56,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         FUZBookmark *bookmark = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        
         [FUZBookmark deleteBookmark:bookmark];
-//        [self.delegate deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
     }
 }
 
@@ -73,7 +78,6 @@
     FUZBookmark* object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BookmarkListCellReuseId" forIndexPath:indexPath];
     cell.textLabel.text = object.name;
-//    [self.delegate configureCell:cell withObject:object];
     return cell;
 }
 

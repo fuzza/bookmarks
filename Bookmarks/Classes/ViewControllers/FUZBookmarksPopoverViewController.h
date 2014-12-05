@@ -20,6 +20,6 @@
 
 @protocol FUZBookmarksPopoverDelegate <NSObject>
 
-- (void)didSelectBookmark:(FUZBookmark *)bookmark;
+- (void)bookmarksPopover:(FUZBookmarksPopoverViewController *)popover didSelectBookmark:(FUZBookmark *)bookmark;
 
 @end

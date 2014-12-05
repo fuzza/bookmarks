@@ -7,14 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 #import <Foundation/Foundation.h>
 #import "FUZDataSource.h"
-#import "FUZFRCDataSource.h"
 
-@interface FUZTableViewDataSource : FUZFRCDataSource <FUZDataSource, UITableViewDelegate, UITableViewDataSource>
+@interface FUZTableViewDataSource : NSObject <FUZDataSource, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
 
 @property (weak, nonatomic) UITableView *target;
 
 - (id)selectedItem;
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
+- (NSArray *)items;
+- (void)reloadDataSource;
 
 @end

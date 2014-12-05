@@ -15,7 +15,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.delegate didSelectBookmark:[self.items objectAtIndex:indexPath.row]];
+    [self.delegate bookmarksPopover:self didSelectBookmark:[self.items objectAtIndex:indexPath.row]];
 }
 
 #pragma mark UITableViewDataSource

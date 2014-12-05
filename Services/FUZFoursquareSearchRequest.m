@@ -6,68 +6,66 @@
 //  Copyright (c) 2014 fuzza. All rights reserved.
 //
 
-#import "FUZFoursquareAPIClient.h"
+#import <SVProgressHUD.h>
+#import "FUZFoursquareSearchRequest.h"
 #import "FUZFoursquareVenue.h"
 #import "FUZMacroses.h"
+#import "FUZConstants.h"
 
-static  NSString * const foursquareSearchAPIURL = @"https://api.foursquare.com/v2/venues/search";
-static  NSString * const foursquareClientId = @"AZ2TFPWBOSCLIX0A0REOXH22Y5T0ZRJWKIQUFM1PGRQXG5TA";
-static  NSString * const foursquareClientSecret = @"RJ2M0C2E4NJY5XBL0C3FG4IDDODWASRTHQYAOMZU5WGLHRST";
-static  NSString * const foursquareAPIVersion = @"20141204";
-
-@interface FUZFoursquareAPIClient()
+@interface FUZFoursquareSearchRequest()
 
 @property (strong, nonatomic) AFHTTPRequestOperation *operation;
 
 @end
 
-@implementation FUZFoursquareAPIClient
-
-- (instancetype)init
-{
-    self = [super init];
-    if(self)
-    {
-        
-    }
-    return self;
-}
+@implementation FUZFoursquareSearchRequest
 
 - (void)loadNearbyPlacesForLocation:(CLLocation *)location withSuccess:(FUZFoursquareVenuesSuccessCallback)success andFailure:(FUZFoursquareVenuesFailureCallback)failure;
 {
-    NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:foursquareSearchAPIURL parameters:[self createRequestParamsForLocation:location] error:nil];
+    NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:kFoursquareSearchAPIURL parameters:[self createRequestParamsForLocation:location] error:nil];
     
     self.operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
     self.operation.responseSerializer = [AFJSONResponseSerializer serializer];
     
     DEFINE_WEAK(self);
+
     [self.operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSArray *venuesResponse = responseObject[@"response"][@"venues"];
-        [weak_self parseVenuesFromResponse:venuesResponse];
-        success(venuesResponse);
-        
+        NSArray *venuesObjects = [weak_self parseVenuesFromResponse:venuesResponse];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+            success(venuesObjects);
+        });
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(error);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+            failure(error);
+        });
     }];
     
     [[NSOperationQueue mainQueue] addOperation:self.operation];
+    [SVProgressHUD show];
     [self.operation resume];
 }
 
 - (void)cancelRequest
 {
-    [self.operation cancel];
-    self.operation = nil;
+    [SVProgressHUD dismiss];
+    if(self.operation.isExecuting)
+    {
+        [self.operation cancel];
+        self.operation = nil;
+    }
 }
 
 - (NSDictionary *)createRequestParamsForLocation:(CLLocation *)location
 {
     NSDictionary *params = @{
-                             @"client_id" : foursquareClientId,
-                             @"client_secret" : foursquareClientSecret,
-                             @"v" : foursquareAPIVersion,
+                             @"client_id" : kFoursquareClientId,
+                             @"client_secret" : kFoursquareClientSecret,
+                             @"v" : kFoursquareAPIVersion,
                              @"ll" : [NSString stringWithFormat:@"%f,%f", location.coordinate.latitude, location.coordinate.longitude]
                              };
     return params;

@@ -11,6 +11,7 @@
 @interface FUZBookmark (PrimitiveAccessors)
 
 - (NSString *)primitiveName;
+- (void)setPrimitiveName:(NSString *)primitiveName;
 
 @end
 
@@ -27,15 +28,32 @@
     return nameViaPrimitive ? nameViaPrimitive : @"Unnamed";
 }
 
+- (void)setName:(NSString *)name
+{
+    [self willChangeValueForKey:@"title"];
+    [self willChangeValueForKey:@"name"];
+    [self setPrimitiveName:name];
+    [self didChangeValueForKey:@"name"];
+    [self didChangeValueForKey:@"title"];
+}
+
+- (BOOL)isUnnamed
+{
+    return ([self primitiveName] == nil);
+}
+
 + (void)deleteBookmark:(FUZBookmark *)bookmark
 {
     [bookmark.managedObjectContext deleteObject:bookmark];
 }
 
-+ (instancetype)createBookmarkFromLocation:(CLLocation *)location inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
++ (instancetype)createBookmarWithCoordinates:(CLLocationCoordinate2D)coordinates inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
     FUZBookmark* newBookmark = [NSEntityDescription insertNewObjectForEntityForName:[self entityName] inManagedObjectContext:managedObjectContext];
-    newBookmark.location = location;
+    
+    CLLocation *loc = [[CLLocation alloc] initWithLatitude:coordinates.latitude longitude:coordinates.longitude];
+    newBookmark.location = loc;
+    
     return newBookmark;
 }
 

@@ -6,3 +6,4 @@ xcodeproj 'Bookmarks.xcodeproj'
 
 pod 'AFNetworking'
 pod 'WYPopoverController'
+pod 'SVProgressHUD', :head

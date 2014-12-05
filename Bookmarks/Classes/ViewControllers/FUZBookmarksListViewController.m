@@ -28,18 +28,6 @@
     [self setupDataSource];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.tableDataSource.paused = NO;
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    self.tableDataSource.paused = YES;
-}
-
 - (void)setupDataSource
 {
     self.tableDataSource = [[FUZTableViewDataSource alloc] initWithTarget:self.tableView];

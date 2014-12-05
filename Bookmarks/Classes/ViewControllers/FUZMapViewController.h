@@ -7,11 +7,11 @@
 //
 #import <MapKit/MapKit.h>
 #import <CoreData/CoreData.h>
-#import <UIKit/UIKit.h>
 #import <WYPopoverController.h>
 
+#import "FUZViewController.h"
+#import "FUZRouteDrawer.h"
 #import "FUZBookmarksPopoverViewController.h"
-#import "FUZMapDataSource.h"
 
 typedef NS_ENUM(NSInteger, FUZMapViewControllerMode)
 {
@@ -21,11 +21,8 @@ typedef NS_ENUM(NSInteger, FUZMapViewControllerMode)
 
 @class FUZFetchedControllersBuilder;
 
-@interface FUZMapViewController : UIViewController <WYPopoverControllerDelegate, FUZBookmarksPopoverDelegate, UIGestureRecognizerDelegate, FUZMapDataSouceDelegate>
+@interface FUZMapViewController : FUZViewController <FUZRouteDrawerDelegate, NSFetchedResultsControllerDelegate, WYPopoverControllerDelegate, FUZBookmarksPopoverDelegate, UIGestureRecognizerDelegate, MKMapViewDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *routeButton;
-@property (assign, nonatomic) FUZMapViewControllerMode mode;
-@property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *longTapOnMapRecognizer;
 
 @end

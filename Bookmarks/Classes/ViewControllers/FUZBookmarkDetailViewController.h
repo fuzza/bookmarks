@@ -6,11 +6,13 @@
 //  Copyright (c) 2014 fuzza. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "FUZViewController.h"
 #import "FUZBookmark.h"
 
-@interface FUZBookmarkDetailViewController : UIViewController
+@interface FUZBookmarkDetailViewController : FUZViewController <UITabBarDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) FUZBookmark *bookmark;
+
+@property (weak, nonatomic) IBOutlet UITableView *nearbyTable;
 
 @end

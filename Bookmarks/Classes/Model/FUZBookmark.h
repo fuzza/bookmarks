@@ -16,10 +16,11 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, assign) CLLocation * location;
 
-+ (NSString *)entityName;
+- (BOOL)isUnnamed;
 
++ (NSString *)entityName;
 + (NSFetchedResultsController *)fetchedResultsControllerForAllBookmarksInContext:(NSManagedObjectContext *)context;
-+ (instancetype)createBookmarkFromLocation:(CLLocation *)location inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
++ (instancetype)createBookmarWithCoordinates:(CLLocationCoordinate2D)coordinates inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 + (void)deleteBookmark:(FUZBookmark *)bookmark;
 
 @end

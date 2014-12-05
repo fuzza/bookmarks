@@ -13,7 +13,7 @@
 typedef void(^FUZFoursquareVenuesSuccessCallback)(NSArray *);
 typedef void(^FUZFoursquareVenuesFailureCallback)(NSError *);
 
-@interface FUZFoursquareAPIClient : NSObject
+@interface FUZFoursquareSearchRequest : NSObject
 
 @property (assign, nonatomic) BOOL processing;
 
