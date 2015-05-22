@@ -22,6 +22,10 @@ describe(@"fields", ^{
         EXP_expect(sut.uid).equal(@"uid");
         EXP_expect(sut.name).equal(@"test_name");
     });
+    
+    it(@"shouldn't pass", ^{
+        EXP_failure(@"fail");
+    });
 });
 
 SpecEnd
