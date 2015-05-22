@@ -28,6 +28,7 @@
 		6FA2DDF91A2CD4E200A1FFCF /* BookmarksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA2DDF81A2CD4E200A1FFCF /* BookmarksTests.m */; };
 		6FA2DE061A2CD85900A1FFCF /* FUZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA2DE041A2CD85900A1FFCF /* FUZAppDelegate.m */; };
 		6FA2DE091A2CD9BC00A1FFCF /* FUZMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA2DE081A2CD9BC00A1FFCF /* FUZMapViewController.m */; };
+		93761A457963223A748BBA0E /* libPods-BookmarksTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7C723BB83E7E97A01087C6 /* libPods-BookmarksTests.a */; };
 		9702AB86788EA324CB5850EF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 501AE0FFAA8B7A49BA34EC57 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E7C723BB83E7E97A01087C6 /* libPods-BookmarksTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BookmarksTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C98C6809C8B623762B86E08 /* Pods-BookmarksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookmarksTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookmarksTests/Pods-BookmarksTests.release.xcconfig"; sourceTree = "<group>"; };
 		501AE0FFAA8B7A49BA34EC57 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F0B8E241A30AAC50022EC41 /* FUZFoursquareVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUZFoursquareVenue.h; sourceTree = "<group>"; };
 		6F0B8E251A30AAC50022EC41 /* FUZFoursquareVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUZFoursquareVenue.m; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 		6FA2DE081A2CD9BC00A1FFCF /* FUZMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUZMapViewController.m; sourceTree = "<group>"; };
 		AFD72FB1AC1FBAAD4A2FF567 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D21BC2D8095F7A1EEDD845C8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F2D071A9B1874B4495C97E8E /* Pods-BookmarksTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookmarksTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BookmarksTests/Pods-BookmarksTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93761A457963223A748BBA0E /* libPods-BookmarksTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +262,7 @@
 				6F1081131A2CE96D00D9A781 /* CoreData.framework */,
 				6F10810E1A2CDB6C00D9A781 /* MapKit.framework */,
 				501AE0FFAA8B7A49BA34EC57 /* libPods.a */,
+				0E7C723BB83E7E97A01087C6 /* libPods-BookmarksTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -266,6 +272,8 @@
 			children = (
 				D21BC2D8095F7A1EEDD845C8 /* Pods.debug.xcconfig */,
 				AFD72FB1AC1FBAAD4A2FF567 /* Pods.release.xcconfig */,
+				F2D071A9B1874B4495C97E8E /* Pods-BookmarksTests.debug.xcconfig */,
+				3C98C6809C8B623762B86E08 /* Pods-BookmarksTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -296,9 +304,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6FA2DDFF1A2CD4E200A1FFCF /* Build configuration list for PBXNativeTarget "BookmarksTests" */;
 			buildPhases = (
+				F12CAE3C7858608C6478499B /* Check Pods Manifest.lock */,
 				6FA2DDEE1A2CD4E200A1FFCF /* Sources */,
 				6FA2DDEF1A2CD4E200A1FFCF /* Frameworks */,
 				6FA2DDF01A2CD4E200A1FFCF /* Resources */,
+				EB53669B8F81D4BB85559132 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -385,6 +395,36 @@
 			showEnvVarsInLog = 0;
 		};
 		35052AC1A0560145A2207BD2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EB53669B8F81D4BB85559132 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BookmarksTests/Pods-BookmarksTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F12CAE3C7858608C6478499B /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -563,6 +603,7 @@
 		};
 		6FA2DE001A2CD4E200A1FFCF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2D071A9B1874B4495C97E8E /* Pods-BookmarksTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -582,6 +623,7 @@
 		};
 		6FA2DE011A2CD4E200A1FFCF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C98C6809C8B623762B86E08 /* Pods-BookmarksTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

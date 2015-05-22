@@ -7,3 +7,11 @@ xcodeproj 'Bookmarks.xcodeproj'
 pod 'AFNetworking'
 pod 'WYPopoverController'
 pod 'SVProgressHUD', :head
+
+target 'BookmarksTests', :exclusive => true do
+
+pod 'Specta'
+pod 'Expecta'
+pod 'OCMock'
+
+end
