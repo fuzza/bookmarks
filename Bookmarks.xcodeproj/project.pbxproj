@@ -12,7 +12,6 @@
 		6F10810F1A2CDB6C00D9A781 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F10810E1A2CDB6C00D9A781 /* MapKit.framework */; };
 		6F1081121A2CE74000D9A781 /* Bookmarks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6F1081101A2CE74000D9A781 /* Bookmarks.xcdatamodeld */; };
 		6F1081141A2CE96D00D9A781 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1081131A2CE96D00D9A781 /* CoreData.framework */; };
-		6F1081181A2CED0E00D9A781 /* FUZBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1081171A2CED0E00D9A781 /* FUZBookmark.m */; };
 		6F10811E1A2CF11300D9A781 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F10811D1A2CF11300D9A781 /* CoreLocation.framework */; };
 		6F4DBD831A2F822100D729D7 /* FUZBookmarksListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4DBD821A2F822100D729D7 /* FUZBookmarksListViewController.m */; };
 		6F4DBD861A2F9F6000D729D7 /* FUZBookmarkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4DBD851A2F9F6000D729D7 /* FUZBookmarkDetailViewController.m */; };
@@ -30,6 +29,8 @@
 		6FA2DE091A2CD9BC00A1FFCF /* FUZMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA2DE081A2CD9BC00A1FFCF /* FUZMapViewController.m */; };
 		93761A457963223A748BBA0E /* libPods-BookmarksTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7C723BB83E7E97A01087C6 /* libPods-BookmarksTests.a */; };
 		9702AB86788EA324CB5850EF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 501AE0FFAA8B7A49BA34EC57 /* libPods.a */; };
+		CC147B741B0F59AF004A9FB9 /* _FUZBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = CC147B731B0F59AF004A9FB9 /* _FUZBookmark.m */; };
+		CC147B771B0F5A11004A9FB9 /* FUZBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = CC147B761B0F5A11004A9FB9 /* FUZBookmark.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +55,6 @@
 		6F10810E1A2CDB6C00D9A781 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6F1081111A2CE74000D9A781 /* Bookmarks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bookmarks.xcdatamodel; sourceTree = "<group>"; };
 		6F1081131A2CE96D00D9A781 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		6F1081161A2CED0E00D9A781 /* FUZBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUZBookmark.h; sourceTree = "<group>"; };
-		6F1081171A2CED0E00D9A781 /* FUZBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUZBookmark.m; sourceTree = "<group>"; };
 		6F10811D1A2CF11300D9A781 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6F4DBD811A2F822100D729D7 /* FUZBookmarksListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUZBookmarksListViewController.h; sourceTree = "<group>"; };
 		6F4DBD821A2F822100D729D7 /* FUZBookmarksListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUZBookmarksListViewController.m; sourceTree = "<group>"; };
@@ -87,6 +86,10 @@
 		6FA2DE071A2CD9BC00A1FFCF /* FUZMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUZMapViewController.h; sourceTree = "<group>"; };
 		6FA2DE081A2CD9BC00A1FFCF /* FUZMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUZMapViewController.m; sourceTree = "<group>"; };
 		AFD72FB1AC1FBAAD4A2FF567 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CC147B721B0F59AF004A9FB9 /* _FUZBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _FUZBookmark.h; sourceTree = "<group>"; };
+		CC147B731B0F59AF004A9FB9 /* _FUZBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _FUZBookmark.m; sourceTree = "<group>"; };
+		CC147B751B0F5A11004A9FB9 /* FUZBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUZBookmark.h; sourceTree = "<group>"; };
+		CC147B761B0F5A11004A9FB9 /* FUZBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUZBookmark.m; sourceTree = "<group>"; };
 		D21BC2D8095F7A1EEDD845C8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F2D071A9B1874B4495C97E8E /* Pods-BookmarksTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookmarksTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BookmarksTests/Pods-BookmarksTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,9 +129,11 @@
 		6F1081151A2CECED00D9A781 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CC147B751B0F5A11004A9FB9 /* FUZBookmark.h */,
+				CC147B761B0F5A11004A9FB9 /* FUZBookmark.m */,
+				CC147B721B0F59AF004A9FB9 /* _FUZBookmark.h */,
+				CC147B731B0F59AF004A9FB9 /* _FUZBookmark.m */,
 				6F9903511A2E2E6500CB7F98 /* DataSources */,
-				6F1081161A2CED0E00D9A781 /* FUZBookmark.h */,
-				6F1081171A2CED0E00D9A781 /* FUZBookmark.m */,
 				6F9903471A2E1DE000CB7F98 /* FUZCoreDataStack.h */,
 				6F9903481A2E1DE000CB7F98 /* FUZCoreDataStack.m */,
 				6F0B8E241A30AAC50022EC41 /* FUZFoursquareVenue.h */,
@@ -448,8 +453,9 @@
 			files = (
 				6F4DBD831A2F822100D729D7 /* FUZBookmarksListViewController.m in Sources */,
 				6F63E1B21A31A8AD00BC7F1E /* FUZViewController.m in Sources */,
-				6F1081181A2CED0E00D9A781 /* FUZBookmark.m in Sources */,
+				CC147B771B0F5A11004A9FB9 /* FUZBookmark.m in Sources */,
 				6FA2DE091A2CD9BC00A1FFCF /* FUZMapViewController.m in Sources */,
+				CC147B741B0F59AF004A9FB9 /* _FUZBookmark.m in Sources */,
 				6FA2DE061A2CD85900A1FFCF /* FUZAppDelegate.m in Sources */,
 				6FA2DDDF1A2CD4E200A1FFCF /* main.m in Sources */,
 				6F0B8E261A30AAC50022EC41 /* FUZFoursquareVenue.m in Sources */,

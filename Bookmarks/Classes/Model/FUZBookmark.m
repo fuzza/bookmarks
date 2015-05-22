@@ -1,11 +1,3 @@
-//
-//  FUZBookmark.m
-//  Bookmarks
-//
-//  Created by fuzza on 12/1/14.
-//  Copyright (c) 2014 fuzza. All rights reserved.
-//
-
 #import "FUZBookmark.h"
 
 @interface FUZBookmark (PrimitiveAccessors)
@@ -15,10 +7,13 @@
 
 @end
 
-@implementation FUZBookmark
+@interface FUZBookmark ()
 
-@dynamic name;
-@dynamic location;
+// Private interface goes here.
+
+@end
+
+@implementation FUZBookmark
 
 - (NSString *)name
 {
@@ -61,7 +56,7 @@
 {
     NSFetchRequest *allBookmarksRequest = [[NSFetchRequest alloc] initWithEntityName:[self entityName]];
     [allBookmarksRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
-
+    
     NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:allBookmarksRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
     return fetchedResultsController;
 }
@@ -75,7 +70,7 @@
 
 - (CLLocationCoordinate2D)coordinate
 {
-    return self.location.coordinate;
+    return ((CLLocation *)self.location).coordinate;
 }
 
 - (NSString *)title

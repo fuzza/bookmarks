@@ -1,20 +1,8 @@
-//
-//  FUZBookmark.h
-//  Bookmarks
-//
-//  Created by fuzza on 12/1/14.
-//  Copyright (c) 2014 fuzza. All rights reserved.
-//
-
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import "_FUZBookmark.h"
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 
-@interface FUZBookmark : NSManagedObject <MKAnnotation>
-
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, assign) CLLocation * location;
+@interface FUZBookmark : _FUZBookmark <MKAnnotation> {}
 
 - (BOOL)isUnnamed;
 
